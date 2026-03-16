@@ -14,11 +14,19 @@
 
 OpenCode 是一个强大的 AI 编程助手，其 Agent 系统设计、工具链集成和会话管理机制为本项目提供了宝贵参考。特别是其 Multi-Agent 协作模式和 Delegation Protocol，直接影响了 OpenNovel 的 Agent 交互设计。
 
-### [@Oh My OpenCode](https://github.com/oh-my-opencode/oh-my-opencode)
+### [@Oh My OpenCode](https://github.com/code-yeongyu/oh-my-openagent)
 
 Oh My OpenCode 是一个功能丰富的 AI 开发环境，其 Hooks 系统、Skills 架构、Intent Gate 决策流程和 Session Continuity 机制为 OpenNovel 提供了核心架构灵感。本项目借鉴了其四阶段意图门控、六字段委派协议等设计模式，并根据小说创作的特点进行了深度改造。
 
 感谢这两个项目的作者和社区贡献者，你们的创新工作让 AI 辅助创作成为可能。
+
+---
+
+## 开源策略
+
+本仓库暂时只开源**基础 SDK 框架**（Agent trait、Session 管理、Message 抽象、Intent Gate 等核心模块），完整的小说创作系统（天道推演引擎、刘和平人物塑造算法、世界观守护者规则引擎等核心算法）暂不开源。
+
+后期计划推出**社区版**，参考 [Lobe Chat](https://github.com/lobehub/lobe-chat) 的开源策略，在保护核心知识产权的同时，为开发者社区提供高质量的基础框架，吸引更多贡献者参与共建。
 
 ---
 
