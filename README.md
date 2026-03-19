@@ -22,6 +22,85 @@ Oh My OpenCode 是一个功能丰富的 AI 开发环境，其 Hooks 系统、Ski
 
 ---
 
+## 项目结构
+
+```
+opennovel-core/
+├── packages/
+│   └── sdk/
+│       ├── core/                          # Phase 0-6: SDK核心
+│       │   ├── src/
+│       │   │   ├── agent/                 # Agent trait 和内置 Agent
+│       │   │   │   └── builtin/           # 天道、执笔、刘和平、世界观守护者等
+│       │   │   ├── session/               # 会话生命周期管理
+│       │   │   ├── message/               # 消息协议
+│       │   │   ├── intent/                # 意图门控
+│       │   │   ├── permission/            # 权限系统
+│       │   │   ├── provider/              # LLM 供应商抽象
+│       │   │   │   └── gitcode.rs         # 🔒 GLM-5 Provider（内置配置）
+│       │   │   ├── hooks/                 # 钩子系统
+│       │   │   │   └── novel_hooks/       # 小说相关钩子
+│       │   │   │       ├── tiandao_hooks/ # 🔒 天道推演钩子
+│       │   │   │       ├── liuheping_hooks/ # 🔒 刘和平人物塑造钩子
+│       │   │   │       ├── world_guardian_hooks/ # 🔒 世界观守护者钩子
+│       │   │   │       ├── writer_hooks/  # 执笔钩子
+│       │   │   │       ├── reviewer_hooks/ # 审阅钩子
+│       │   │   │       ├── researcher_hooks/ # 调研者钩子
+│       │   │   │       ├── observer_hooks/ # 观察者钩子
+│       │   │   │       └── planner_hooks/ # 规划者钩子
+│       │   │   ├── tools/                 # 工具系统
+│       │   │   │   └── novel_tools/       # 小说相关工具
+│       │   │   │       ├── tiandao/       # 🔒 天道推演工具
+│       │   │   │       ├── liuheping/     # 🔒 刘和平人物塑造工具
+│       │   │   │       ├── world_guardian/ # 🔒 世界观守护者工具
+│       │   │   │       ├── writer/        # 执笔工具
+│       │   │   │       ├── reviewer/      # 审阅工具
+│       │   │   │       ├── researcher/    # 调研者工具
+│       │   │   │       ├── observer/      # 观察者工具
+│       │   │   │       └── planner/       # 规划者工具
+│       │   │   ├── skills/                # 技能系统
+│       │   │   └── delegation/            # 委派协议
+│       │   └── Cargo.toml
+│       │
+│       └── config/                        # 配置系统
+│           └── src/schema/                # Provider、Agent、App 配置 Schema
+│
+├── apps/
+│   └── web/                               # Web 应用（Axum + SvelteKit）
+│       ├── src/
+│       │   ├── main.rs                    # 服务入口
+│       │   ├── routes.rs                  # API 路由
+│       │   ├── state.rs                   # 应用状态
+│       │   ├── book_store.rs              # 书籍和消息存储
+│       │   └── agent_collaboration.rs     # Agent 协作管理器
+│       │
+│       └── frontend/                      # SvelteKit 前端
+│           ├── src/
+│           │   ├── lib/
+│           │   │   ├── components/        # UI 组件
+│           │   │   │   ├── IdeLayout.svelte    # IDE 布局
+│           │   │   │   ├── ActivityBar.svelte  # 活动栏
+│           │   │   │   ├── Sidebar.svelte      # 侧边栏
+│           │   │   │   ├── BookSwitcher.svelte # 书籍切换
+│           │   │   │   ├── ChatPage.svelte     # 群聊页面
+│           │   │   │   ├── MessageList.svelte  # 消息列表
+│           │   │   │   └── AgentStatusPanel.svelte
+│           │   │   ├── stores/            # 状态管理
+│           │   │   └── api/               # API 客户端
+│           │   └── routes/                # 页面路由
+│           └── package.json
+│
+├── docs/                                  # 设计文档
+│   ├── ARCHITECTURE_DESIGN_V2.md
+│   ├── COMPONENT_SYSTEM.md
+│   ├── SKILLS_AND_HOOKS_DESIGN.md
+│   └── implementation-reports/
+│
+└── Cargo.toml                             # Workspace 配置
+```
+
+---
+
 ## 开源策略
 
 本仓库暂时只开源**基础 SDK 框架**（Agent trait、Session 管理、Message 抽象、Intent Gate 等核心模块），完整的小说创作系统（天道推演引擎、刘和平人物塑造算法、世界观守护者规则引擎等核心算法）暂不开源。
