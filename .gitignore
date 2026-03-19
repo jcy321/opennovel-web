@@ -1,4 +1,3 @@
-
 # Node.js
 node_modules/
 
@@ -9,8 +8,21 @@ node_modules/
 # Build outputs
 dist/
 build/
-*.tsbuildinfo
 
-# Test artifacts
-screenshots/
-test-report.json
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
